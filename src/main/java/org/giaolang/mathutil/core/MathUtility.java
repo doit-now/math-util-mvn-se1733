@@ -21,7 +21,28 @@ public class MathUtility {
     //vì giai thừa tăng rất nhanh, 21! long ko chứa nổi (long 18 số 0)
     //20! vừa đủ cho long
     //21! 22! 23! > 20! -> CHỬI, ném ra Exception
-    public static long getFactorial(int n) {
+//    public static long getFactorial(int n) {
+//        
+//        if (n < 0 || n > 20)
+//            throw new IllegalArgumentException("Invalid n. n must be between 0..20, plz");
+//        
+//        if (n == 0 || n == 1)
+//            return 1;
+//        
+//        long product = 1; //biến lưu dồn các tích
+//        for (int i = 2; i <= n; i++) 
+//            product *= i;
+//        
+//        return product;
+//            
+//        
+//           
+//        
+//        
+//        
+//    }
+    
+     public static long getFactorial(int n) {
         
         if (n < 0 || n > 20)
             throw new IllegalArgumentException("Invalid n. n must be between 0..20, plz");
@@ -29,19 +50,21 @@ public class MathUtility {
         if (n == 0 || n == 1)
             return 1;
         
-        long product = 1; //biến lưu dồn các tích
-        for (int i = 2; i <= n; i++) 
-            product *= i;
-        
-        return product;
-            
-        
-           
-        
-        
-        
+        return n * getFactorial(n - 1);
+                 
     }
     
 }
+
+//5! = 1.2.3.4.5 = 1.2.3.4   . 5
+//               =    4!     . 5 = 5 x 4!
+
+//4! = 4 x 3!
+//3! = 3 x 2!
+//2! = 2 x 1!
+//1! = 1;  DỪNG QUÁ TRÌNH ĐUỔI NHAU
+//N! = N X (N - 1)!
+
+
 
 
